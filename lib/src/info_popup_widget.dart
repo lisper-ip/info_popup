@@ -233,9 +233,11 @@ class _InfoPopupWidgetState extends State<InfoPopupWidget> {
       },
       dismissTriggerBehavior: widget.dismissTriggerBehavior,
       infoPopupDismissed: () {
-        setState(() {
+        if(mounted){
+          setState(() {
           widget.infoPopupDismissed?.call();
         });
+        }
       },
       contentOffset: widget.contentOffset ?? const Offset(0, 0),
       indicatorOffset: widget.indicatorOffset ?? const Offset(0, 0),
